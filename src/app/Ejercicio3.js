@@ -15,11 +15,18 @@ export default function TaskApp() {
   );
 
   function handleAddTodo(title) {
-    todos.push({
-      id: nextId++,
-      title: title,
-      done: false
-    });
+    //Controlamos que no este vacío
+    if(title != ""){
+      setTodos([
+        //Introducimos nuevo valor al array
+        {id: nextId++,
+          title: title,
+          done: false
+        },
+        //hacemos copia de todo el resto
+      ...todos])
+    }
+
   }
 
   function handleChangeTodo(nextTodo) {
@@ -31,10 +38,8 @@ export default function TaskApp() {
   }
 
   function handleDeleteTodo(todoId) {
-    const index = todos.findIndex(t =>
-      t.id === todoId
-    );
-    todos.splice(index, 1);
+    setTodos(todos.filter(todo => todo.id !== todoId))
+
   }
 
   return (
