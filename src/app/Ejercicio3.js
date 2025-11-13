@@ -26,20 +26,23 @@ export default function TaskApp() {
         //hacemos copia de todo el resto
       ...todos])
     }
-
   }
 
   function handleChangeTodo(nextTodo) {
-    const todo = todos.find(t =>
-      t.id === nextTodo.id
-    );
-    todo.title = nextTodo.title;
-    todo.done = nextTodo.done;
+    const todo = todos.map(todo => {
+      if(todo.id === nextTodo.id){
+        todo.title = nextTodo.title;
+        todo.done = nextTodo.done;
+        return todo
+      }else{
+        return todo
+      }
+    })
+    setTodos(todo)
   }
 
   function handleDeleteTodo(todoId) {
     setTodos(todos.filter(todo => todo.id !== todoId))
-
   }
 
   return (
