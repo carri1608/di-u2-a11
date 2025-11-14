@@ -30,7 +30,6 @@ export default function ShoppingCart() {
         return product
       }
     })
-
     setProducts(nuevosProductos)
   }
 

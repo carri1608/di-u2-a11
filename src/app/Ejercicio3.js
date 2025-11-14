@@ -31,9 +31,7 @@ export default function TaskApp() {
   function handleChangeTodo(nextTodo) {
     const todo = todos.map(todo => {
       if(todo.id === nextTodo.id){
-        todo.title = nextTodo.title;
-        todo.done = nextTodo.done;
-        return todo
+        return {...todo, title:nextTodo.title, done: nextTodo.done}
       }else{
         return todo
       }

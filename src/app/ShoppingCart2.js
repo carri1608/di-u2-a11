@@ -46,8 +46,7 @@ export default function ShoppingCart() {
       }
     })
 
-    setProducts(productosDecr.filter(product => product.count !== 0
-    ))
+    setProducts(productosDecr.filter(product => product.count !== 0))
   }
 
   return (
